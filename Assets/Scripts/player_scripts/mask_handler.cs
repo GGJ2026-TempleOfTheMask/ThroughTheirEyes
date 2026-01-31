@@ -1,6 +1,10 @@
+using System;
+using System.Collections;
 using JetBrains.Annotations;
+using TMPro;
 using Unity.Multiplayer.Center.Common;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class mask_handler : MonoBehaviour
 {
@@ -17,16 +21,16 @@ public class mask_handler : MonoBehaviour
 
     [SerializeField] camera_lookat mask_finder;
 
-    //For looking at mask
-    float maxDist;
-    LayerMask maskLayer;
+    [SerializeField] bool maskOn = false;
 
-
+    [SerializeField] Renderer[] wallRenderers;
+    [SerializeField] Material wallMat;
+    [SerializeField] Material transMat;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -44,7 +48,7 @@ public class mask_handler : MonoBehaviour
             }
             else
             {
-                //held mask logic.
+                ToggleMask();
 
                 //open door if first wear.
                 if(firstWear) meta.GetComponent<GameStateHandler>().AdvanceSpoopMode();
@@ -54,7 +58,12 @@ public class mask_handler : MonoBehaviour
 
     void ToggleMask()
     {
-        
+        maskOn = !maskOn;
+        monster.GetComponent<monster_follow>().stalled = !monster.GetComponent<monster_follow>().stalled;
+        foreach (Renderer r in wallRenderers)
+        {
+            r.material = maskOn ? transMat : wallMat;
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -77,5 +86,9 @@ public class mask_handler : MonoBehaviour
         }
     }
 
-  
+    IEnumerator MaskCooldown()
+    {
+
+        yield return new WaitForSeconds(3);
+    }
 }

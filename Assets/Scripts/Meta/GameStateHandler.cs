@@ -40,7 +40,6 @@ public class GameStateHandler : MonoBehaviour
             temple.SetActive(false);
             //loads maze
             maze.SetActive(true);
-            //spawns monster
             //Gets rid of mask
             mask.SetActive(false);
         }

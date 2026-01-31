@@ -5,6 +5,7 @@ public class monster_follow : MonoBehaviour
 {
     public NavMeshAgent agent;
     [SerializeField] GameObject player;
+    public bool stalled = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -15,8 +16,15 @@ public class monster_follow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 target = player.transform.position;
-        agent.SetDestination(target);
+        if (!stalled)
+        {
+             Vector3 target = player.transform.position;
+             agent.SetDestination(target);
+        }
+        else
+        {
+            agent.SetDestination(transform.position);
+        }
     }
 
 }

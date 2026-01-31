@@ -11,6 +11,7 @@ public class GameStateHandler : MonoBehaviour
     //The maze, to be loaded.
     [SerializeField] GameObject maze;
     [SerializeField] GameObject mask;
+    [SerializeField] GameObject monster;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -49,6 +50,7 @@ public class GameStateHandler : MonoBehaviour
              spoopDoor.SetActive(false);
 
              //start monster a.i
+             monster.SetActive(true);
         }
     }
 }

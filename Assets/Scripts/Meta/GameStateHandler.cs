@@ -28,7 +28,7 @@ public class GameStateHandler : MonoBehaviour
         }
     }
 
-    void AdvanceSpoopMode()
+    public void AdvanceSpoopMode()
     {
         spoopMode++;
         if(spoopMode == 1)

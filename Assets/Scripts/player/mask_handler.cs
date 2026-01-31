@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class mask_handler : MonoBehaviour
 {
+    //Game Handler for Game State Change
     [SerializeField] GameObject meta;
-    //Mask Toggle Button, can be custom set
-    [SerializeField] KeyCode maskToggleButton;
     //Needs the monster to tell it to stop moving
     [SerializeField] GameObject monster;
     
     //Checks for the mask gameobject at the beginning of the game
     [SerializeField] bool maskHeld = false;
     [SerializeField] bool inMaskTrigger = false;
-    [SerializeField] bool lookingAtMask = false;
+
+    [SerializeField] bool firstWear = true;
+
+    [SerializeField] camera_lookat mask_finder;
+
     //For looking at mask
     float maxDist;
     LayerMask maskLayer;
@@ -29,14 +32,22 @@ public class mask_handler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(maskToggleButton))
+        if (Input.GetMouseButtonDown(0))
         {
             //If the mask is not picked up check if it can be picked up
             if (!maskHeld)
             {
                 //if not then return
-                if(!lookingAtMask || !inMaskTrigger) return;
+                if(!mask_finder.lookingAtMask || !inMaskTrigger) return;
                 maskHeld = true;
+                meta.GetComponent<GameStateHandler>().AdvanceSpoopMode();
+            }
+            else
+            {
+                //held mask logic.
+
+                //open door if first wear.
+                if(firstWear) meta.GetComponent<GameStateHandler>().AdvanceSpoopMode();
             }
         }
     }
@@ -66,20 +77,5 @@ public class mask_handler : MonoBehaviour
         }
     }
 
-    //Check if mask is in front 
-    void CheckInteractable()
-    {
-       //Throws a raycast from camera that checks if it hits the mask
-       Ray ray = new Ray(transform.position, transform.forward);
-       RaycastHit hit;
-       if(Physics.Raycast(ray, out hit, maxDist, maskLayer))
-        {
-            lookingAtMask = true;
-        }
-        else
-        {
-            lookingAtMask = false;
-        }
-
-    }
+  
 }

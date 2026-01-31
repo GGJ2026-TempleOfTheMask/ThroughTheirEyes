@@ -33,7 +33,7 @@ public class player_movement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
-    }
+    } 
 
     private void MyInput()
     {

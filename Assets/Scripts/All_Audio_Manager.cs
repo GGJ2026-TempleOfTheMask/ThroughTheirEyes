@@ -11,8 +11,11 @@ public class All_Audio_Manager : MonoBehaviour
     public AudioSource sfxSource1;
     public AudioSource sfxSource2;
     public AudioSource sfxOneShots;
+    private AudioSource monsterSourceBed;
+    private AudioSource monsterSourceOneShots;
     public AudioClip[] musicClips;
     public AudioClip[] sfxClips;
+    public AudioClip[] monsterClips;
     public AudioMixerSnapshot[] audioMixerSnapshots;
     private bool firstTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -50,21 +53,27 @@ public class All_Audio_Manager : MonoBehaviour
 
             case 2: ////mask on
             //play monster layer
-            if (firstTime)
-                {
-                    musicSource1.clip = musicClips[2];
-                    musicSource1.Play();
-                    firstTime = !firstTime;
-                }
             sfxSource2.clip = sfxClips[2];
             sfxSource2.loop = true;
             sfxSource2.Play();
+            sfxOneShots.PlayOneShot(sfxClips[3]);
             audioMixerSnapshots[3].TransitionTo(1f);
             break;
 
             case 3: //mask off
             //fade monster layer w snapshot
             //then stop monster layer
+            if (firstTime)
+                {
+                    monsterSourceBed = GameObject.Find("MonsterBed").GetComponent<AudioSource>();
+                    monsterSourceOneShots = GameObject.Find("MonsterOneShots").GetComponent<AudioSource>();
+                    monsterSourceBed.Play();
+                     musicSource1.clip = musicClips[2];
+                    musicSource1.Play();
+                    StartCoroutine(MonsterNoise());
+                    firstTime = !firstTime;
+                }
+            sfxOneShots.PlayOneShot(sfxClips[4]);
             sfxOneShots.loop = false;
             audioMixerSnapshots[4].TransitionTo(1f);//fade monster music
             StartCoroutine(StopAudio(sfxSource2));//stop mask noisees
@@ -77,6 +86,14 @@ public class All_Audio_Manager : MonoBehaviour
         yield return new WaitForSeconds(3);
         audioSource.Stop();
         //audioMixerSnapshots[4].TransitionTo(1f);//bring all music back up
+    }
+
+    IEnumerator MonsterNoise()
+    {
+        yield return new WaitForSeconds(Random.Range(1, 4));
+        monsterSourceOneShots.clip = monsterClips[Random.Range(0, monsterClips.Length)];
+        monsterSourceOneShots.Play();
+        StartCoroutine(MonsterNoise());
     }
 
     public void JumpScareAudio()
@@ -92,5 +109,7 @@ public class All_Audio_Manager : MonoBehaviour
         musicSource1.Stop();
         musicSource2.Stop();
         sfxSource1.Stop();
+        monsterSourceBed.Stop();
+        monsterSourceOneShots.Stop();
     }
 }

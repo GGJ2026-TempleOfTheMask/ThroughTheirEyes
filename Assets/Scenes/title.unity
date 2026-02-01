@@ -1059,6 +1059,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 40452eddecf3c4f7ca21a56b0f4119eb, type: 3}
   - {fileID: 8300000, guid: 391b74c189863489b8da698448d6a54c, type: 3}
   - {fileID: 8300000, guid: b1846c8236a5a414ba022beb05124bfc, type: 3}
+  - {fileID: 8300000, guid: 16acc475c01004dfd8eb0d3ff4c0cb5e, type: 3}
+  - {fileID: 8300000, guid: 343b14a6e0f664f9a86ee0084e4508a4, type: 3}
+  monsterClips:
+  - {fileID: 8300000, guid: d1b678da5645c4a6eb5ea70cea2c7eac, type: 3}
+  - {fileID: 8300000, guid: aa26aa6528a5e45dba169699e3447f2b, type: 3}
+  - {fileID: 8300000, guid: 404b7216ac1294a658812b2606a81de2, type: 3}
   audioMixerSnapshots:
   - {fileID: 24500006, guid: 105720e817cd44deba15216fedfc2a85, type: 2}
   - {fileID: 5860866428870313734, guid: 105720e817cd44deba15216fedfc2a85, type: 2}

@@ -7514,9 +7514,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7fc44a5cab6f0449913547ce18867bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player_movement
-  speed: 3
+  speed: 5
   groundDrag: 2
   orientation: {fileID: 64226111}
+  moveDirection: {x: 0, y: 0, z: 0}
   playerControlled: 1
 --- !u!4 &1182764727
 Transform:

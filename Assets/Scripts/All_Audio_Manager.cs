@@ -33,26 +33,33 @@ public class All_Audio_Manager : MonoBehaviour
             break;
 
             case 1: //from menu into temple
-            musicSource2.clip = musicClips[1];
+            musicSource2.clip = musicClips[1];//set clip to low amb
             musicSource2.Play();
-            audioMixerSnapshots[1].TransitionTo(1f);
+            sfxSource.PlayOneShot(musicClips[4]);
+            audioMixerSnapshots[2].TransitionTo(1f);//fade menu music
+            StartCoroutine(StopAudio(musicSource1));//stop menu music
             break;
 
-            case 2: //temple to maze
-            //fade source1 (menu music) w snapshots
-            //wait a bit then stop source1
-            break;
-
-            case 3: //mask on — may be an issue here bc of first time?
+            case 2: ////mask on — may be an issue here bc of first time?
             //play monster layer
+            musicSource1.clip = musicClips[2];
+            musicSource1.Play();
+            audioMixerSnapshots[3].TransitionTo(1f);
             break;
 
-            case 4: //mask off
+            case 3: //mask off
             //fade monster layer w snapshot
             //then stop monster layer
+            audioMixerSnapshots[2].TransitionTo(1f);//fade monster music
+            StartCoroutine(StopAudio(musicSource1));//stop monster music
             break;
-
-
         }
+    }
+
+    public IEnumerator StopAudio(AudioSource audioSource)
+    {
+        yield return new WaitForSeconds(3);
+        audioSource.Stop();
+        audioMixerSnapshots[4].TransitionTo(1f);//bring all music back up
     }
 }

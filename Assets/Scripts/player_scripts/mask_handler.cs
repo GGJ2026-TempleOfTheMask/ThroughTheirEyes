@@ -64,6 +64,15 @@ public class mask_handler : MonoBehaviour
         {
             r.material = maskOn ? transMat : wallMat;
         }
+        //audio stuff
+        if (maskOn)
+        {
+            GameObject.Find("All_Audio_Manager").GetComponent<All_Audio_Manager>().SceneSwitchMusic(2);
+        }
+        else
+        {
+            GameObject.Find("All_Audio_Manager").GetComponent<All_Audio_Manager>().SceneSwitchMusic(3);
+        }
     }
 
     void OnTriggerEnter(Collider other)

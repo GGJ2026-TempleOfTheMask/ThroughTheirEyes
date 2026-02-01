@@ -21,7 +21,7 @@ public class mask_handler : MonoBehaviour
 
     [SerializeField] camera_lookat mask_finder;
 
-    [SerializeField] bool maskOn = false;
+    public bool maskOn = false;
 
     [SerializeField] Renderer[] wallRenderers;
     [SerializeField] Material wallMat;

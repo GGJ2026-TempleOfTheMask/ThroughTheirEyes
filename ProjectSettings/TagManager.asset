@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Mask
   - Wall
+  - Meta
+  - SceneSwitch
+  - Monster
   layers:
   - Default
   - TransparentFX

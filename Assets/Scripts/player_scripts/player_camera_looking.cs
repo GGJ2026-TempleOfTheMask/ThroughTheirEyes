@@ -8,6 +8,8 @@ public class player_camera_looking : MonoBehaviour
     float xRotation;
     float yRotation;
 
+     public bool playerControlled = true;
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -17,6 +19,9 @@ public class player_camera_looking : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         if (!playerControlled) return;
+
+
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensY;
 

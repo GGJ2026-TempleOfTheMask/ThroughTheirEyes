@@ -14,6 +14,7 @@ public class All_Audio_Manager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        audioMixerSnapshots[0].TransitionTo(1f);
         musicSource1.clip = musicClips[0];
         musicSource1.Play();
     }
@@ -28,14 +29,13 @@ public class All_Audio_Manager : MonoBehaviour
     {
         switch (sceneIndex)
         {
-            case 0: //start
-            //return to beginning when you fail?
+            case 0:
             break;
-
+            
             case 1: //from menu into temple
             musicSource2.clip = musicClips[1];//set clip to low amb
             musicSource2.Play();
-            sfxSource.PlayOneShot(musicClips[4]);
+            sfxSource.PlayOneShot(musicClips[3]);
             audioMixerSnapshots[2].TransitionTo(1f);//fade menu music
             StartCoroutine(StopAudio(musicSource1));//stop menu music
             break;
@@ -61,5 +61,12 @@ public class All_Audio_Manager : MonoBehaviour
         yield return new WaitForSeconds(3);
         audioSource.Stop();
         audioMixerSnapshots[4].TransitionTo(1f);//bring all music back up
+    }
+
+    public void JumpScareAudio()
+    {
+        audioMixerSnapshots[5].TransitionTo(1f); //turn off music source 2
+        musicSource1.PlayOneShot(musicClips[3]);
+        //add sfx here
     }
 }

@@ -47,6 +47,9 @@ public class player_jumpscare_handler : MonoBehaviour
         monsterFollow.stalled = true;
         //preprocessing?
 
+        //audio
+        GameObject.Find("All_Audio_Manager").GetComponent<All_Audio_Manager>().JumpScareAudio();
+
         //Start Timings for JumpScare
        StartCoroutine(JumpScareTiming());
     }

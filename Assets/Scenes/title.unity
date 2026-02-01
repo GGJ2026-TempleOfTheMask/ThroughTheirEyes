@@ -793,14 +793,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8a622161357044775a2f2ca93aea0264, type: 3}
   - {fileID: 8300000, guid: 8bbe49b0d3a5243dbbbea4263d7b1789, type: 3}
   - {fileID: 8300000, guid: fdaa7cda0ff234d188af2010ba53a634, type: 3}
-  - {fileID: 8300000, guid: 1138db59c5ae24d5cbfc26d2e751002d, type: 3}
-  - {fileID: 8300000, guid: 9a075705c43ae451e800ea131609c724, type: 3}
+  - {fileID: 8300000, guid: 486a4fac24cdf43188c84fbe6a24ce4c, type: 3}
   audioMixerSnapshots:
   - {fileID: 24500006, guid: 105720e817cd44deba15216fedfc2a85, type: 2}
   - {fileID: 5860866428870313734, guid: 105720e817cd44deba15216fedfc2a85, type: 2}
   - {fileID: 5784895326391954757, guid: 105720e817cd44deba15216fedfc2a85, type: 2}
   - {fileID: 2067454163921151885, guid: 105720e817cd44deba15216fedfc2a85, type: 2}
   - {fileID: 872217048578566411, guid: 105720e817cd44deba15216fedfc2a85, type: 2}
+  - {fileID: -4057536664315311226, guid: 105720e817cd44deba15216fedfc2a85, type: 2}
 --- !u!4 &640813888
 Transform:
   m_ObjectHideFlags: 0

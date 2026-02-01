@@ -13,6 +13,7 @@ public class All_Audio_Manager : MonoBehaviour
     public AudioClip[] musicClips;
     public AudioClip[] sfxClips;
     public AudioMixerSnapshot[] audioMixerSnapshots;
+    private bool firstTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +21,7 @@ public class All_Audio_Manager : MonoBehaviour
         audioMixerSnapshots[0].TransitionTo(1f);
         musicSource1.clip = musicClips[0];
         musicSource1.Play();
+        firstTime = true;
     }
 
     // Update is called once per frame
@@ -45,10 +47,14 @@ public class All_Audio_Manager : MonoBehaviour
             StartCoroutine(StopAudio(musicSource1));//stop menu music
             break;
 
-            case 2: ////mask on — may be an issue here bc of first time?
+            case 2: ////mask on
             //play monster layer
-            musicSource1.clip = musicClips[2];
-            musicSource1.Play();
+            if (firstTime)
+                {
+                    musicSource1.clip = musicClips[2];
+                    musicSource1.Play();
+                    firstTime = !firstTime;
+                }
             audioMixerSnapshots[3].TransitionTo(1f);
             break;
 
@@ -56,7 +62,7 @@ public class All_Audio_Manager : MonoBehaviour
             //fade monster layer w snapshot
             //then stop monster layer
             audioMixerSnapshots[2].TransitionTo(1f);//fade monster music
-            StartCoroutine(StopAudio(musicSource1));//stop monster music
+            //StartCoroutine(StopAudio(musicSource1));//stop monster music
             break;
         }
     }

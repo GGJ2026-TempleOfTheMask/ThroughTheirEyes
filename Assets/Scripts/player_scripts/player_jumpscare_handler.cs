@@ -29,13 +29,11 @@ public class player_jumpscare_handler : MonoBehaviour
         }
     }
 
-
     void StartJumpscare()
     {
         //lock camera, player actions
         playerMovement.playerControlled = false;
         playerCameraLooking.playerControlled = false;
-        playerCameraMoving.playerControlled = false;
 
         //force camera on monster
         cameraDir.LookAt(monsterHead);
@@ -55,14 +53,7 @@ public class player_jumpscare_handler : MonoBehaviour
 
     IEnumerator JumpScareTiming()
     {
-        float timeElapsed = 0;
-        Vector3 initialPos = cameraDir.position;
-        while (timeElapsed < 1.5f)
-        {
-            timeElapsed += Time.deltaTime;
-            ShakeCamera(initialPos);
-            yield return new WaitForFixedUpdate();
-        }
+        yield return new WaitForSeconds(1.5f);
         blackScreen.color = new Color(0,0,0,1);
         yield return new WaitForSeconds(2);
         GameObject meta = GameObject.FindGameObjectWithTag("Meta");
@@ -74,11 +65,5 @@ public class player_jumpscare_handler : MonoBehaviour
         {
             Debug.Log("No Meta Found");
         }
-    }
-
-    void ShakeCamera(Vector3 initialPos)
-    {
-        Vector3 offset = Random.insideUnitSphere * 0.1f;
-        cameraDir.position = initialPos + offset;
     }
 }

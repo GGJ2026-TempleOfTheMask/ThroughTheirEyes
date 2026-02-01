@@ -3,17 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
-  - Meta
-  - SceneSwitch
-  - Mask
-  - Wall
-  - Monster
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Terrain
+  - 
   - Water
   - UI
   - 

@@ -6,7 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+<<<<<<< HEAD
+    path: Assets/Scenes/title.unity
+    guid: 575552fbf198f1741989bf599b565824
+  - enabled: 1
+    path: Assets/Scenes/temple.unity
+=======
     path: Assets/Scenes/Scene1.unity
+>>>>>>> c990b69ed16340e0a919eac06de711ca25750941
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

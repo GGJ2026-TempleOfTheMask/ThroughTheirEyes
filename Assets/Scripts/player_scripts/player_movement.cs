@@ -18,6 +18,8 @@ public class player_movement : MonoBehaviour
     public Vector3 moveDirection;
     Rigidbody rb;
 
+    public bool playerControlled = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -33,12 +35,21 @@ public class player_movement : MonoBehaviour
     private void FixedUpdate()
     {
         MovePlayer();
-    }
+    } 
 
     private void MyInput()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        if (playerControlled)
+        {
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
+        }
+        else
+        {
+            horizontalInput = 0;
+            verticalInput = 0;
+        }
+       
     }
 
     private void MovePlayer()

@@ -3,12 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
+<<<<<<< HEAD
   tags:
   - Mask
   - Wall
   - Meta
   - SceneSwitch
   - Monster
+=======
+  tags: []
+>>>>>>> c990b69ed16340e0a919eac06de711ca25750941
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - Interactable
   - Water
   - UI
-  - 
+  - Post Processing
   - 
   - 
   - 

@@ -388,10 +388,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -795,6 +795,12 @@ MonoBehaviour:
   - {fileID: 8300000, guid: fdaa7cda0ff234d188af2010ba53a634, type: 3}
   - {fileID: 8300000, guid: 1138db59c5ae24d5cbfc26d2e751002d, type: 3}
   - {fileID: 8300000, guid: 9a075705c43ae451e800ea131609c724, type: 3}
+  audioMixerSnapshots:
+  - {fileID: 24500006, guid: 105720e817cd44deba15216fedfc2a85, type: 2}
+  - {fileID: 5860866428870313734, guid: 105720e817cd44deba15216fedfc2a85, type: 2}
+  - {fileID: 5784895326391954757, guid: 105720e817cd44deba15216fedfc2a85, type: 2}
+  - {fileID: 2067454163921151885, guid: 105720e817cd44deba15216fedfc2a85, type: 2}
+  - {fileID: 872217048578566411, guid: 105720e817cd44deba15216fedfc2a85, type: 2}
 --- !u!4 &640813888
 Transform:
   m_ObjectHideFlags: 0
@@ -1105,10 +1111,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1508,6 +1514,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2013188116}
         m_TargetAssemblyTypeName: ButtonSceneSwitch, Assembly-CSharp
         m_MethodName: SwitchScene
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 640813887}
+        m_TargetAssemblyTypeName: All_Audio_Manager, Assembly-CSharp
+        m_MethodName: SceneSwitchMusic
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

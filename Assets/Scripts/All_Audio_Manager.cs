@@ -23,4 +23,36 @@ public class All_Audio_Manager : MonoBehaviour
     {
         
     }
+
+    public void SceneSwitchMusic(int sceneIndex)
+    {
+        switch (sceneIndex)
+        {
+            case 0: //start
+            //return to beginning when you fail?
+            break;
+
+            case 1: //from menu into temple
+            musicSource2.clip = musicClips[1];
+            musicSource2.Play();
+            audioMixerSnapshots[1].TransitionTo(1f);
+            break;
+
+            case 2: //temple to maze
+            //fade source1 (menu music) w snapshots
+            //wait a bit then stop source1
+            break;
+
+            case 3: //mask on — may be an issue here bc of first time?
+            //play monster layer
+            break;
+
+            case 4: //mask off
+            //fade monster layer w snapshot
+            //then stop monster layer
+            break;
+
+
+        }
+    }
 }

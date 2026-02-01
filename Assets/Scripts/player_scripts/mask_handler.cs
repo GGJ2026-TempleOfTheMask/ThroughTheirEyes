@@ -27,6 +27,13 @@ public class mask_handler : MonoBehaviour
     [SerializeField] Material wallMat;
     [SerializeField] Material transMat;
 
+    [SerializeField] float maskCooldown = 20f;
+    bool canMask = true;
+    [SerializeField] float onMaxDuration = 5f;
+
+    //Animation Stuff
+    [SerializeField] Animator maskAnimator;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -48,16 +55,35 @@ public class mask_handler : MonoBehaviour
             }
             else
             {
-                ToggleMask();
-
-                //open door if first wear.
-                if(firstWear) meta.GetComponent<GameStateHandler>().AdvanceSpoopMode();
+                StartCoroutine(ToggleMask());
+                
             }
         }
     }
 
-    void ToggleMask()
+    IEnumerator ToggleMask()
     {
+        if(maskOn)
+        {
+            maskAnimator.Play("mask_off");
+            swapMaskState();
+            StartCoroutine(MaskCooldown());
+        }
+        else
+        {
+            if(canMask)
+            {
+                maskAnimator.Play("mask_on");
+                yield return new WaitForSeconds(0.2f);
+                //open door if first wear.
+                if(firstWear) meta.GetComponent<GameStateHandler>().AdvanceSpoopMode();
+                swapMaskState();
+                StartCoroutine(MaskOnMaxTime());
+            }
+        }
+    }
+
+    void swapMaskState(){
         maskOn = !maskOn;
         monster.GetComponent<monster_follow>().stalled = !monster.GetComponent<monster_follow>().stalled;
         foreach (Renderer r in wallRenderers)
@@ -66,8 +92,28 @@ public class mask_handler : MonoBehaviour
         }
     }
 
+    IEnumerator MaskCooldown()
+    {
+        canMask = false;
+        yield return new WaitForSeconds(maskCooldown);
+        canMask = true;
+    }
+
+    IEnumerator MaskOnMaxTime()
+    {
+        yield return new WaitForSeconds(onMaxDuration);
+        if(maskOn)
+        {
+            maskAnimator.Play("mask_off");
+            swapMaskState();
+            StartCoroutine(MaskCooldown());
+        }
+    }
+
+
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Trigger Entered");
         //check if mask
         if(other.gameObject.tag == "Mask")
         {
@@ -84,11 +130,5 @@ public class mask_handler : MonoBehaviour
             //unchecks one box for trigger
             inMaskTrigger = false;
         }
-    }
-
-    IEnumerator MaskCooldown()
-    {
-
-        yield return new WaitForSeconds(3);
     }
 }

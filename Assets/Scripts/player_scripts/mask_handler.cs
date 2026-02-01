@@ -23,7 +23,7 @@ public class mask_handler : MonoBehaviour
 
     public bool maskOn = false;
 
-    [SerializeField] Renderer[] wallRenderers;
+    [SerializeField] GameObject maze;
     [SerializeField] Material wallMat;
     [SerializeField] Material transMat;
 
@@ -85,10 +85,12 @@ public class mask_handler : MonoBehaviour
     void swapMaskState(){
             maskOn = !maskOn;
             monster.GetComponent<monster_follow>().stalled = !monster.GetComponent<monster_follow>().stalled;
-            foreach (Renderer r in wallRenderers)
+            Renderer[] walls = maze.GetComponentsInChildren<Renderer>();
+            foreach (Renderer wall in walls)
             {
-                r.material = maskOn ? transMat : wallMat;
+                wall.material = maskOn ? transMat : wallMat;
             }
+                
         }
 
         
@@ -102,7 +104,7 @@ public class mask_handler : MonoBehaviour
 
     IEnumerator MaskOnMaxTime()
     {
-         yield return new WaitForSeconds(onMaxDuration);
+        yield return new WaitForSeconds(onMaxDuration);
         if(maskOn)
         {
             maskAnimator.Play("mask_off");

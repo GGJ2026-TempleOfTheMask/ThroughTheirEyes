@@ -61,7 +61,7 @@ public class player_jumpscare_handler : MonoBehaviour
         float timeElapsed = 0;
         Vector3 initialPos = cameraDir.position;
         monster.SetActive(false);
-        jumpscareAnimator.Play("jumpscare_anim");
+        jumpscareAnimator.Play("jumpscare");
 
         while (timeElapsed < 1.5f)
         {

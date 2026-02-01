@@ -9,6 +9,7 @@ public class All_Audio_Manager : MonoBehaviour
     public AudioSource musicSource2;
     public AudioSource musicOneShots;
     public AudioSource sfxSource1;
+    public AudioSource sfxSource2;
     public AudioSource sfxOneShots;
     public AudioClip[] musicClips;
     public AudioClip[] sfxClips;
@@ -55,14 +56,18 @@ public class All_Audio_Manager : MonoBehaviour
                     musicSource1.Play();
                     firstTime = !firstTime;
                 }
+            sfxSource2.clip = sfxClips[2];
+            sfxSource2.loop = true;
+            sfxSource2.Play();
             audioMixerSnapshots[3].TransitionTo(1f);
             break;
 
             case 3: //mask off
             //fade monster layer w snapshot
             //then stop monster layer
-            audioMixerSnapshots[2].TransitionTo(1f);//fade monster music
-            //StartCoroutine(StopAudio(musicSource1));//stop monster music
+            sfxOneShots.loop = false;
+            audioMixerSnapshots[4].TransitionTo(1f);//fade monster music
+            StartCoroutine(StopAudio(sfxSource2));//stop mask noisees
             break;
         }
     }
@@ -71,7 +76,7 @@ public class All_Audio_Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         audioSource.Stop();
-        audioMixerSnapshots[4].TransitionTo(1f);//bring all music back up
+        //audioMixerSnapshots[4].TransitionTo(1f);//bring all music back up
     }
 
     public void JumpScareAudio()

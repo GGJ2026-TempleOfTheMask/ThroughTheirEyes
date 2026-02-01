@@ -7,8 +7,11 @@ public class All_Audio_Manager : MonoBehaviour
 {
     public AudioSource musicSource1;
     public AudioSource musicSource2;
-    public AudioSource sfxSource;
+    public AudioSource musicOneShots;
+    public AudioSource sfxSource1;
+    public AudioSource sfxOneShots;
     public AudioClip[] musicClips;
+    public AudioClip[] sfxClips;
     public AudioMixerSnapshot[] audioMixerSnapshots;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,11 +34,13 @@ public class All_Audio_Manager : MonoBehaviour
         {
             case 0:
             break;
-            
+
             case 1: //from menu into temple
             musicSource2.clip = musicClips[1];//set clip to low amb
             musicSource2.Play();
-            sfxSource.PlayOneShot(musicClips[3]);
+            musicOneShots.PlayOneShot(musicClips[3]);
+            sfxSource1.clip = sfxClips[0];
+            sfxSource1.Play();
             audioMixerSnapshots[2].TransitionTo(1f);//fade menu music
             StartCoroutine(StopAudio(musicSource1));//stop menu music
             break;
@@ -66,7 +71,15 @@ public class All_Audio_Manager : MonoBehaviour
     public void JumpScareAudio()
     {
         audioMixerSnapshots[5].TransitionTo(1f); //turn off music source 2
-        musicSource1.PlayOneShot(musicClips[3]);
+        musicOneShots.PlayOneShot(musicClips[3]);
+        sfxOneShots.PlayOneShot(sfxClips[1]);
         //add sfx here
+    }
+
+    public void StopAudio2()
+    {
+        musicSource1.Stop();
+        musicSource2.Stop();
+        sfxSource1.Stop();
     }
 }

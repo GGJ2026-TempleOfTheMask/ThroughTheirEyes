@@ -58,6 +58,8 @@ public class player_jumpscare_handler : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         blackScreen.color = new Color(0,0,0,1);
+        //
+        GameObject.Find("All_Audio_Manager").GetComponent<All_Audio_Manager>().StopAudio2();
         yield return new WaitForSeconds(2);
         GameObject meta = GameObject.FindGameObjectWithTag("Meta");
         if (meta)

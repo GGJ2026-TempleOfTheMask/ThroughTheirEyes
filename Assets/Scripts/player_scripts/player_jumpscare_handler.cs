@@ -11,10 +11,13 @@ public class player_jumpscare_handler : MonoBehaviour
     
     [SerializeField] Transform monsterHead;
     [SerializeField] monster_follow monsterFollow;
+    [SerializeField] GameObject monster;
     [SerializeField] Transform cameraDir;
     [SerializeField] player_movement playerMovement;
 
     [SerializeField] float minDist = 1;
+
+    [SerializeField] Animator jumpscareAnimator;
 
 
     [SerializeField] Image blackScreen;
@@ -57,6 +60,9 @@ public class player_jumpscare_handler : MonoBehaviour
     {
         float timeElapsed = 0;
         Vector3 initialPos = cameraDir.position;
+        monster.SetActive(false);
+        jumpscareAnimator.Play("jumpscare_anim");
+
         while (timeElapsed < 1.5f)
         {
             timeElapsed += Time.deltaTime;

@@ -18,6 +18,7 @@ public class All_Audio_Manager : MonoBehaviour
     public AudioClip[] monsterClips;
     public AudioMixerSnapshot[] audioMixerSnapshots;
     private bool firstTime;
+    private bool monsterNoises;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,6 +26,7 @@ public class All_Audio_Manager : MonoBehaviour
         audioMixerSnapshots[0].TransitionTo(1f);
         musicSource1.clip = musicClips[0];
         musicSource1.Play();
+        monsterNoises = false;
         firstTime = true;
     }
 
@@ -58,6 +60,7 @@ public class All_Audio_Manager : MonoBehaviour
             sfxSource2.Play();
             sfxOneShots.PlayOneShot(sfxClips[3]);
             audioMixerSnapshots[3].TransitionTo(1f);
+            monsterNoises = false;
             break;
 
             case 3: //mask off
@@ -68,11 +71,12 @@ public class All_Audio_Manager : MonoBehaviour
                     monsterSourceBed = GameObject.Find("MonsterBed").GetComponent<AudioSource>();
                     monsterSourceOneShots = GameObject.Find("MonsterOneShots").GetComponent<AudioSource>();
                     monsterSourceBed.Play();
-                     musicSource1.clip = musicClips[2];
+                    musicSource1.clip = musicClips[2];
                     musicSource1.Play();
                     StartCoroutine(MonsterNoise());
                     firstTime = !firstTime;
                 }
+            monsterNoises = true;
             sfxOneShots.PlayOneShot(sfxClips[4]);
             sfxOneShots.loop = false;
             audioMixerSnapshots[4].TransitionTo(1f);//fade monster music
@@ -93,7 +97,7 @@ public class All_Audio_Manager : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(1, 4));
         monsterSourceOneShots.clip = monsterClips[Random.Range(0, monsterClips.Length)];
         monsterSourceOneShots.Play();
-        StartCoroutine(MonsterNoise());
+        if (monsterNoises){StartCoroutine(MonsterNoise());}
     }
 
     public void JumpScareAudio()
@@ -106,6 +110,7 @@ public class All_Audio_Manager : MonoBehaviour
 
     public void StopAudio2()
     {
+        monsterNoises = false;
         musicSource1.Stop();
         musicSource2.Stop();
         sfxSource1.Stop();

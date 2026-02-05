@@ -35,11 +35,13 @@ public class mask_handler : MonoBehaviour
     [SerializeField] Animator maskAnimator;
     [SerializeField]
     private Renderer[] walls;
+    private All_Audio_Manager all_Audio_Manager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         walls = maze.GetComponentsInChildren<Renderer>();
+        all_Audio_Manager = GameObject.Find("All_Audio_Manager").GetComponent<All_Audio_Manager>();
     }
 
     // Update is called once per frame
@@ -89,18 +91,26 @@ public class mask_handler : MonoBehaviour
     }
 
     void swapMaskState(){
-            maskOn = !maskOn;
-            monster.GetComponent<monster_follow>().stalled = !monster.GetComponent<monster_follow>().stalled;
-            //Renderer[] walls = maze.GetComponentsInChildren<Renderer>();
-            foreach (Renderer wall in walls)
-            {
-                //Debug.Log(wall);
-                //wall.material = maskOn ? transMat : wallMat;
-                //maskOn = true ? wall.enabled = false : wall.enabled = true;
-                wall.enabled = !wall.enabled;
-            }
-                Debug.Log("maskOn is " + maskOn);
+        maskOn = !maskOn;
+        monster.GetComponent<monster_follow>().stalled = !monster.GetComponent<monster_follow>().stalled;
+        //Renderer[] walls = maze.GetComponentsInChildren<Renderer>();
+        foreach (Renderer wall in walls)
+        {
+            //Debug.Log(wall);
+            //wall.material = maskOn ? transMat : wallMat;
+            //maskOn = true ? wall.enabled = false : wall.enabled = true;
+            wall.enabled = !wall.enabled;
         }
+            Debug.Log("maskOn is " + maskOn);
+        if (maskOn)
+        {
+            all_Audio_Manager.SceneSwitchMusic(2);
+        }
+        else
+        {
+            all_Audio_Manager.SceneSwitchMusic(3);
+        }
+    }
 
         
 

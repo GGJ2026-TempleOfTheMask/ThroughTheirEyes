@@ -33,11 +33,13 @@ public class mask_handler : MonoBehaviour
 
     //Animation Stuff
     [SerializeField] Animator maskAnimator;
+    [SerializeField]
+    private Renderer[] walls;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        walls = maze.GetComponentsInChildren<Renderer>();
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class mask_handler : MonoBehaviour
                 if(!mask_finder.lookingAtMask || !inMaskTrigger) return;
                 maskHeld = true;
                 meta.GetComponent<GameStateHandler>().AdvanceSpoopMode();
+                Debug.Log("mask not held");
             }
             else
             {
@@ -66,18 +69,21 @@ public class mask_handler : MonoBehaviour
         {
             maskAnimator.Play("mask_off");
             swapMaskState();
-            StartCoroutine(MaskCooldown());
+            //StartCoroutine(MaskCooldown());
+            Debug.Log("mask off");
+
         }
         else
         {
             if(canMask)
             {
+                Debug.Log("mask on");
                 maskAnimator.Play("mask_on");
                 yield return new WaitForSeconds(0.2f);
                 //open door if first wear.
                 if(firstWear) meta.GetComponent<GameStateHandler>().AdvanceSpoopMode();
                 swapMaskState();
-                StartCoroutine(MaskOnMaxTime());
+                //StartCoroutine(MaskOnMaxTime());
             }
         }
     }
@@ -85,12 +91,15 @@ public class mask_handler : MonoBehaviour
     void swapMaskState(){
             maskOn = !maskOn;
             monster.GetComponent<monster_follow>().stalled = !monster.GetComponent<monster_follow>().stalled;
-            Renderer[] walls = maze.GetComponentsInChildren<Renderer>();
+            //Renderer[] walls = maze.GetComponentsInChildren<Renderer>();
             foreach (Renderer wall in walls)
             {
-                wall.material = maskOn ? transMat : wallMat;
+                //Debug.Log(wall);
+                //wall.material = maskOn ? transMat : wallMat;
+                //maskOn = true ? wall.enabled = false : wall.enabled = true;
+                wall.enabled = !wall.enabled;
             }
-                
+                Debug.Log("maskOn is " + maskOn);
         }
 
         

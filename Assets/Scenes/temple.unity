@@ -22773,6 +22773,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 753487688910040629, guid: 355991dbc17d65a439c5c87f1631b2e9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 753487688910040629, guid: 355991dbc17d65a439c5c87f1631b2e9, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -54532,6 +54536,10 @@ PrefabInstance:
     - target: {fileID: 244396599601822493, guid: ff3066ade5e7d3c48951f3eb41ce9076, type: 3}
       propertyPath: m_Name
       value: Game Handler
+      objectReference: {fileID: 0}
+    - target: {fileID: 244396599601822493, guid: ff3066ade5e7d3c48951f3eb41ce9076, type: 3}
+      propertyPath: m_TagString
+      value: Meta
       objectReference: {fileID: 0}
     - target: {fileID: 904632985233733879, guid: ff3066ade5e7d3c48951f3eb41ce9076, type: 3}
       propertyPath: mask

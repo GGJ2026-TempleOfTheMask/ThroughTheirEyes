@@ -1,0 +1,130 @@
+<linker>
+  <assembly fullname="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="GameStateHandler" preserve="all" />
+    <type fullname="maze_cell_object" preserve="all" />
+    <type fullname="monster_follow" preserve="all" />
+    <type fullname="monster_look" preserve="all" />
+    <type fullname="SceneHandler" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.AI.Navigation, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Unity.AI.Navigation.NavMeshSurface" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.RenderPipelines.Core.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerBitField" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerButton" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerColor" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerContainer" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerEnumField" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerEnumHistory" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerFloatField" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerFoldout" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerGroup" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerHBox" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerIndirectFloatField" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerIndirectToggle" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerIntField" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerMessageBox" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerObject" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerObjectList" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerObjectPopupField" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerPanel" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerProgressBar" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerRenderingLayerField" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerRow" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerToggle" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerToggleHistory" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerUIntField" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerValue" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerValueTuple" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerVBox" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerVector2" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerVector3" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.DebugUIHandlerVector4" preserve="all" />
+    <type fullname="UnityEngine.Rendering.UI.UIFoldout" preserve="all" />
+  </assembly>
+  <assembly fullname="Unity.RenderPipelines.HighDefinition.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Rendering.HighDefinition.HDAdditionalLightData" preserve="all" />
+    <type fullname="UnityEngine.Rendering.HighDefinition.BoolScalableSettingValue" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.HighDefinition.IntScalableSettingValue" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.BundledAssetProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider" preserve="all" />
+    <type fullname="UnityEngine.ResourceManagement.ResourceProviders.SceneProvider" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AI.NavMeshAgent" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AnimationClip" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AudioClip" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.ComputeShader" preserve="all" />
+    <type fullname="UnityEngine.GameObject" preserve="all" />
+    <type fullname="UnityEngine.Light" preserve="all" />
+    <type fullname="UnityEngine.LODGroup" preserve="all" />
+    <type fullname="UnityEngine.Material" preserve="all" />
+    <type fullname="UnityEngine.Mesh" preserve="all" />
+    <type fullname="UnityEngine.MeshFilter" preserve="all" />
+    <type fullname="UnityEngine.MeshRenderer" preserve="all" />
+    <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.RectTransform" preserve="all" />
+    <type fullname="UnityEngine.Shader" preserve="all" />
+    <type fullname="UnityEngine.Sprite" preserve="all" />
+    <type fullname="UnityEngine.SpriteRenderer" preserve="all" />
+    <type fullname="UnityEngine.Texture2D" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
+    <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.PersistentListenerMode" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.PhysicsModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.BoxCollider" preserve="all" />
+    <type fullname="UnityEngine.CapsuleCollider" preserve="all" />
+    <type fullname="UnityEngine.MeshCollider" preserve="all" />
+    <type fullname="UnityEngine.SphereCollider" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Font" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.EventSystems.EventTrigger" preserve="all" />
+    <type fullname="UnityEngine.UI.Button" preserve="all" />
+    <type fullname="UnityEngine.UI.CanvasScaler" preserve="all" />
+    <type fullname="UnityEngine.UI.ContentSizeFitter" preserve="all" />
+    <type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all" />
+    <type fullname="UnityEngine.UI.HorizontalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.Image" preserve="all" />
+    <type fullname="UnityEngine.UI.LayoutElement" preserve="all" />
+    <type fullname="UnityEngine.UI.Mask" preserve="all" />
+    <type fullname="UnityEngine.UI.Scrollbar" preserve="all" />
+    <type fullname="UnityEngine.UI.ScrollRect" preserve="all" />
+    <type fullname="UnityEngine.UI.Text" preserve="all" />
+    <type fullname="UnityEngine.UI.Toggle" preserve="all" />
+    <type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.EventSystems.EventTrigger/Entry" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.EventSystems.EventTrigger/TriggerEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.AnimationTriggers" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.ColorBlock" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.FontData" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.MaskableGraphic/CullStateChangedEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Navigation" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.ScrollRect/ScrollRectEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Scrollbar/ScrollEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Toggle/ToggleEvent" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Canvas" preserve="all" />
+    <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
+  </assembly>
+</linker>
